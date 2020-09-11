@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> f1aabac8b78cbd1d86b014f118d20eff1e8ff4ea
 Django==3.0.6
 psycopg2==2.8.5
 djangorestframework
