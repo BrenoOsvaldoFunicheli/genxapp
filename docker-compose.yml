@@ -1,0 +1,30 @@
+version: '3'
+
+
+services:
+    app:
+      build: .
+      container_name: genxapp-app
+      command: bash docker-entrypoint.sh
+      volumes:
+        - .:/home/django/app
+      ports:
+        - "8002:8002"
+      depends_on:
+        - db
+
+    db:
+      image: postgres
+      container_name: genxapp
+      tty:  true
+      environment:
+        - POSTGRES_DB=genxapp
+        - POSRGRES_USER=postgres
+        - POSTGRES_PASSWORD=root
+      volumes:
+        - genxapp:/var/lib/postgresql/data
+    
+volumes:
+  genxapp:
+    external: true
+  
