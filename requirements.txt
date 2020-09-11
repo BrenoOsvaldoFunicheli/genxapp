@@ -4,7 +4,6 @@ djangorestframework
 django-mysql==2.2.0
 django-oauth-toolkit
 django-filter
-rest_framework_simplejwt
 djangorestframework_simplejwt
 djangorestframework-jwt
 phonenumbers
