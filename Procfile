@@ -1,1 +1,2 @@
-web: gunicorn genxapp.wsgi --log-file -
+web: gunicorn genxapp.wsgi
+
