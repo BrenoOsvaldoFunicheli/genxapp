@@ -1,0 +1,1 @@
+web: gunicorn genxapp.wsgi --log-file -
