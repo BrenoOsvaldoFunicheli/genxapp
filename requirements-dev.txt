@@ -12,4 +12,3 @@ validate_email
 python-decouple
 dj-database-url
 dj-static
-gunicorn
