@@ -13,3 +13,4 @@ dj-database-url
 dj-static
 gunicorn
 django-heroku
+markdown

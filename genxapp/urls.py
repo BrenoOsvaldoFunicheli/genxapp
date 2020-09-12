@@ -18,14 +18,15 @@ from django.urls import path
 from django.urls import path, include
 # rest_framework imports
 from rest_framework import routers
-from users.api.viewsets import UserViewSet
 
+# my imports
+from .views import index
 
-router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
+app_name = "genxapp"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index, name="index"),
     path('', include('users.urls')),
-    
+
 ]
