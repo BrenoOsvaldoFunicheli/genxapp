@@ -29,7 +29,7 @@ class miRDB(models.Model):
 class TGScan(models.Model):
 
     mirna = models.CharField(max_length=500)
-    gene_id = models.CharField(max_length=500)
-    gene_name = models.CharField(max_length=500)
-    score = models.FloatField()
-    specie = models.CharField(max_length=500)
+    gene_id = models.CharField(null=True, blank=True, max_length=500)
+    gene_name = models.CharField(null=True, blank=True,max_length=500)
+    score = models.FloatField(null=True, blank=True)
+    specie = models.CharField(null=True, blank=True, max_length=500)
