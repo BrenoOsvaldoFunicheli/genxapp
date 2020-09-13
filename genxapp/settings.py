@@ -35,7 +35,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 
-ALLOWED_HOSTS = ['genxapp.herokuapp.com','0.0.0.0', '127.0.0.1','localhost']
+ALLOWED_HOSTS = ['genxapp.herokuapp.com', '0.0.0.0', '127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -52,11 +52,13 @@ INSTALLED_APPS = [
     'django_filters',
     'users.apps.UsersConfig',
     'mirna_db.apps.MirnaDbConfig',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -97,8 +99,8 @@ WSGI_APPLICATION = 'genxapp.wsgi.application'
 # heroku setup
 default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
-DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
-
+DATABASES = {'default': config(
+    'DATABASE_URL', default=default_dburl, cast=dburl), }
 
 
 # Password validation
@@ -150,5 +152,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 4
 }
+
+# CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ORIGIN_ALLOW_ALL = True   
 
 django_heroku.settings(locals())
