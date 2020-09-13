@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'django_filters',
     'users.apps.UsersConfig',
+    'mirna_db.apps.MirnaDbConfig',
 ]
 
 MIDDLEWARE = [
