@@ -1,3 +1,3 @@
-release: python manage.py makemigrations && python manage.py migrate
+release: ./heroku-setup.sh
 web: gunicorn genxapp.wsgi
 
