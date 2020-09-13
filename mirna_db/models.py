@@ -25,3 +25,11 @@ class miRDB(models.Model):
 
     def __str__(self):
         return ''
+
+class TGScan(models.Model):
+
+    mirna = models.CharField(max_length=500)
+    gene_id = models.CharField(max_length=500)
+    gene_name = models.CharField(max_length=500)
+    score = models.FloatField(max_length=500)
+    specie = models.CharField(max_length=500)
