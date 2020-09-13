@@ -3,6 +3,7 @@
 import os
 import sys
 
+# python manage.py makemigrations && python manage.py migrate && python manage.py test
 
 def main():
     """Run administrative tasks."""
