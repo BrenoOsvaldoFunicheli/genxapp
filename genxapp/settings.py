@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'mirna_db.apps.MirnaDbConfig',
     'corsheaders',
+    'rest_framework_swagger',
 ]
 
 MIDDLEWARE = [

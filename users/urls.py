@@ -1,16 +1,24 @@
 from django.urls import path, include
+from django.conf.urls import url
+
 # rest_framework imports
 from rest_framework import routers
 
 #   my serializers class
-from users.api.viewsets import UserViewSet
+from users.api.viewsets import UserViewSet,UseraAuthViewSet
 #   jwt imports
 from rest_framework_simplejwt import views as jwt_views
+
+
+
+# schema_view = get_schema_view(title='Users API', renderer_classes=[OpenAPIRenderer, SwaggerUIRenderer])
+
 
 # it's defining the routers to api access
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
+router.register(r'users_auth', UseraAuthViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
