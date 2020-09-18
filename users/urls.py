@@ -17,9 +17,11 @@ from rest_framework_simplejwt import views as jwt_views
 # it's defining the routers to api access
 
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
-router.register(r'users_auth', UseraAuthViewSet)
+router.register(r'users', UserViewSet, 'users')
 
+router.register(r'users_auth', UseraAuthViewSet,'users_auth')
+
+print(router.urls)
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
