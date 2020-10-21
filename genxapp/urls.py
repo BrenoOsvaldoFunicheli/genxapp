@@ -41,6 +41,7 @@ urlpatterns = [
     # my resources
     path('', index, name="index"),
     path('', include('users.urls')),
+    path('', include('mirna_db.urls')),
 
     # authentication
     path('api/v1/login/', jwt_views.TokenObtainPairView.as_view(),
