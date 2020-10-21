@@ -26,28 +26,25 @@ from .views import index
 from django.views.generic import TemplateView
 from rest_framework.schemas import get_schema_view
 
-
-from rest_framework.schemas import get_schema_view
-
-from rest_framework.renderers import CoreJSONRenderer
-from rest_framework_swagger.renderers import SwaggerUIRenderer, OpenAPIRenderer
-
+#   jwt imports
+from rest_framework_simplejwt import views as jwt_views
 
 # swager
 from rest_framework_swagger.views import get_swagger_view
 
 app_name = "genxapp"
 
-schema_view = get_schema_view(
-    title='A Different API',
-    renderer_classes=[CoreJSONRenderer]
-)
-# schema_view = get_schema_view(title='Users API', renderer_classes=[OpenAPIRenderer, SwaggerUIRenderer])
-
 urlpatterns = [
-    url('doc/', schema_view, name="docs"),
+    # admin roots
     path('admin/', admin.site.urls),
+
+    # my resources
     path('', index, name="index"),
     path('', include('users.urls')),
 
+    # authentication
+    path('api/v1/login/', jwt_views.TokenObtainPairView.as_view(),
+         name='token_obtain_pair'),
+    path('api/v1/login/refresh/', jwt_views.TokenRefreshView.as_view(),
+         name='token_refresh'),
 ]

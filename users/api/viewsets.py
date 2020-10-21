@@ -8,7 +8,8 @@ from rest_framework.response import Response
 #   my serializers classes
 from users.api.serializers import UserSerializer
 
-unavailable_resource = Response({"result": "this resource isn't available"}, status=status.HTTP_404_NOT_FOUND)
+unavailable_resource = Response(
+    {"result": "this resource isn't available"}, status=status.HTTP_404_NOT_FOUND)
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -38,13 +39,15 @@ class UserViewSet(viewsets.ModelViewSet):
     def create(self, request):
         data = request.data
 
-        user, created = User.objects.get_or_create(username=data['username'], email=data['email'])
+        user, created = User.objects.get_or_create(
+            username=data['username'], email=data['email'])
 
         if created:
             user.set_password(data['password'])
             user.save()
-            
-        return Response({"User Created":"User Created"})
+            return Response({"results": "User Created"}, status.HTTP_201_CREATED)
+        else:
+            return Response({"results": "Error There is error on request"}, status.HTTP_400_BAD_REQUEST)
 
     def list(self, request, pk=None):
         return unavailable_resource
