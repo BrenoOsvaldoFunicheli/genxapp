@@ -8,14 +8,13 @@ from rest_framework import routers
 from mirna_db.api.viewsets import *
 
 # it's defining the routers to api access
-router = routers.DefaultRouter()
-router.register(r'tgscan', TGScan, 'tgscan')
-router.register(r'mirdb', miRDB, 'mirdb')
-router.register(r'tarbase', Tarbase, 'tarbase')
+m_router = routers.DefaultRouter()
+m_router.register(r'tgscan', TGScanViewSet, 'tgscan')
+m_router.register(r'mirdb', miRDBViewSet, 'mirdb')
+m_router.register(r'tarbase', TarbaseViewSet, 'tarbase')
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('api/v1/', include(router.urls)),
-  
+    path('api/v1/', include(m_router.urls)),
 ]
