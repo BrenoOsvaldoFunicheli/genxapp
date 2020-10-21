@@ -53,6 +53,21 @@ class UserViewSet(viewsets.ModelViewSet):
         else:
             return Response({"results": "Error There is error on request"}, status.HTTP_400_BAD_REQUEST)
 
+    def list(self, request, pk=None):
+        return unavailable_resource
+
+    def retrieve(self, request, pk=None):
+        return unavailable_resource
+
+    def destroy(self, request, *args, **kwargs):
+        return unavailable_resource
+
+    def update(self, request, *args, **kwargs):
+        return unavailable_resource
+
+    def partial_update(self, request, *args, **kwargs):
+        return unavailable_resource
+
 
 class UserAuth(APIView):
     """
