@@ -1,9 +1,41 @@
-from django.contrib.auth.models import User, Group
+# rest framework
 from rest_framework import serializers
 
+# my classes
+from mirna_db.models import *
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+
+class TarbaseSerializer(serializers.Serializer):
     class Meta:
-        model = User
-        fields = ['username', 'email']
+        model = Tarbase
+        fields = [
+            'mirna',
+            'geneName',
+            'species',
+            'method',
+            'direct_indirect',
+            'up_down'
+        ]
 
+
+class TGScanSerializer(serializers.Serializer):
+    class Meta:
+        model = TGScan
+        fields = [
+            'mirna',
+            'gene_id',
+            'gene_name',
+            'score',
+            'specie'
+        ]
+
+
+class miRDBSerializer(serializers.Serializer):
+    class Meta:
+        model = TGScan
+        fields = [
+            'mirna',
+            'geneName',
+            'score',
+            'species'
+        ]

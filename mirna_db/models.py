@@ -13,7 +13,7 @@ class Tarbase(models.Model):
     up_down = models.CharField(max_length=300)
 
     def __str__(self):
-        return " miRNA " + self.mirna + " of" + self.geneName + " belong to " + self.species
+        return " miRNA " + self.mirna + " of " + self.geneName + " belong to " + self.species
 
 
 class miRDB(models.Model):
