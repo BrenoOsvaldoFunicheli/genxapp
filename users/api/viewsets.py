@@ -111,7 +111,7 @@ class UserAuth(APIView):
         user.last_name=data['last_name']
         user.first_name=data['last_name']
         user.username=data['username']
-        user.password=data['password']
+        user.set_password(data['password'])
         user.email=data['email']
 
         user.save()
