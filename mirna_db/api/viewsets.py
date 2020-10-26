@@ -18,7 +18,7 @@ class TarbaseViewSet(viewsets.ModelViewSet):
     """
     queryset = Tarbase.objects.all()
     serializer_class = TarbaseSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    #permission_classes = [permissions.IsAuthenticated]
 
     
 class miRDBViewSet(viewsets.ModelViewSet):
@@ -35,4 +35,4 @@ class TGScanViewSet(viewsets.ModelViewSet):
     """
     queryset = TGScan.objects.all()
     serializer_class = TGScanSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    #permission_classes = [permissions.IsAuthenticated]
