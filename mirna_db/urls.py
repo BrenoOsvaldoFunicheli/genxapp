@@ -16,5 +16,5 @@ m_router.register(r'tarbase', TarbaseViewSet, 'tarbase')
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('api/v1/', include(m_router.urls)),
+    path('api/v1/mirna/', include(m_router.urls)),
 ]

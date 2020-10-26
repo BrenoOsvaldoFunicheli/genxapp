@@ -5,7 +5,7 @@ from rest_framework import serializers
 from mirna_db.models import *
 
 
-class TarbaseSerializer(serializers.Serializer):
+class TarbaseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tarbase
         fields = [
@@ -18,19 +18,13 @@ class TarbaseSerializer(serializers.Serializer):
         ]
 
 
-class TGScanSerializer(serializers.Serializer):
+class TGScanSerializer(serializers.ModelSerializer):
     class Meta:
         model = TGScan
-        fields = [
-            'mirna',
-            'gene_id',
-            'gene_name',
-            'score',
-            'specie'
-        ]
+        fields = [  'mirna','gene_id','gene_name','score','specie']
 
 
-class miRDBSerializer(serializers.Serializer):
+class miRDBSerializer(serializers.ModelSerializer):
     class Meta:
         model = TGScan
         fields = [
