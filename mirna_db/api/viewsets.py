@@ -27,7 +27,7 @@ class miRDBViewSet(viewsets.ModelViewSet):
     """
     queryset = miRDB.objects.all()
     serializer_class = miRDBSerializer
-    permission_classes = [permissions.IsAuthenticated]
+   # permission_classes = [permissions.IsAuthenticated]
 
 class TGScanViewSet(viewsets.ModelViewSet):
     """
