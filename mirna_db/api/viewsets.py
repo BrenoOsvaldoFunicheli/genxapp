@@ -27,12 +27,31 @@ class miRDBViewSet(viewsets.ModelViewSet):
     """
     queryset = miRDB.objects.all()
     serializer_class = miRDBSerializer
-   # permission_classes = [permissions.IsAuthenticated]
+    #permission_classes = [permissions.IsAuthenticated]
 
 class TGScanViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed
     """
-    queryset = TGScan.objects.all()
+    model=TGScan
+    # queryset = TGScan.objects.all()
     serializer_class = TGScanSerializer
     #permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        queryset = TGScan.objects
+
+        mirna = self.request.query_params.get('mirna')
+        gene= self.request.query_params.get('gene')
+
+        if mirna:     
+            print(mirna)
+            queryset = queryset.filter(mirna__icontains=mirna)   
+            print(queryset)
+
+        if gene:
+            queryset = queryset.filter(gene__icontains=mirna)   
+            print(gene)
+        
+
+        return queryset

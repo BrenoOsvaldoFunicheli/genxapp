@@ -26,7 +26,7 @@ class TGScanSerializer(serializers.ModelSerializer):
 
 class miRDBSerializer(serializers.ModelSerializer):
     class Meta:
-        model = TGScan
+        model = miRDB
         fields = [
             'mirna',
             'geneName',

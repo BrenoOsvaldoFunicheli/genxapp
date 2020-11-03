@@ -28,6 +28,8 @@ from rest_framework.schemas import get_schema_view
 
 #   jwt imports
 from rest_framework_simplejwt import views as jwt_views
+# from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
+
 
 # swager
 from rest_framework_swagger.views import get_swagger_view
@@ -48,4 +50,6 @@ urlpatterns = [
          name='token_obtain_pair'),
     path('api/v1/login/refresh/', jwt_views.TokenRefreshView.as_view(),
          name='token_refresh'),
+    # path('api/v1/login/', obtain_jwt_token,name='token_obtain_pair'),
+    # path('api/v1/login/refresh/', refresh_jwt_token,name='token_refresh'),
 ]
