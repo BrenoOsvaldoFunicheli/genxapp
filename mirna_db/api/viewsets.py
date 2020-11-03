@@ -39,7 +39,7 @@ class TGScanViewSet(viewsets.ModelViewSet):
     #permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        queryset = TGScan.objects
+        queryset = TGScan.objects.all()
 
         mirna = self.request.query_params.get('mirna')
         gene= self.request.query_params.get('gene')
