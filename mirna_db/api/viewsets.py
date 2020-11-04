@@ -16,18 +16,48 @@ class TarbaseViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed
     """
-    queryset = Tarbase.objects.all()
+    model = Tarbase
     serializer_class = TarbaseSerializer
     #permission_classes = [permissions.IsAuthenticated]
 
+
+    def get_queryset(self):
+        queryset = Tarbase.objects.all()
+
+        mirna = self.request.query_params.get('mirna')
+        gene= self.request.query_params.get('gene')
+
+        if mirna:     
+            queryset = queryset.filter(mirna__icontains=mirna)   
+
+        if gene:
+            queryset = queryset.filter(geneName__icontains=gene)   
+            
+
+        return queryset
     
 class miRDBViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed
     """
-    queryset = miRDB.objects.all()
+    model = miRDB
     serializer_class = miRDBSerializer
     #permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        queryset = miRDB.objects.all()
+
+        mirna = self.request.query_params.get('mirna')
+        gene= self.request.query_params.get('gene')
+
+        if mirna:     
+            queryset = queryset.filter(mirna__icontains=mirna)   
+
+        if gene:
+            queryset = queryset.filter(geneName__icontains=gene)   
+            
+
+        return queryset
 
 class TGScanViewSet(viewsets.ModelViewSet):
     """
