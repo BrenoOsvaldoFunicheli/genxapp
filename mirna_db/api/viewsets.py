@@ -45,13 +45,10 @@ class TGScanViewSet(viewsets.ModelViewSet):
         gene= self.request.query_params.get('gene')
 
         if mirna:     
-            print(mirna)
             queryset = queryset.filter(mirna__icontains=mirna)   
-            print(queryset)
 
         if gene:
-            queryset = queryset.filter(gene__icontains=mirna)   
-            print(gene)
-        
+            queryset = queryset.filter(gene_name__icontains=gene)   
+            
 
         return queryset

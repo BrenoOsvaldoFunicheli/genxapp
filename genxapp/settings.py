@@ -157,7 +157,7 @@ REST_FRAMEWORK = {
     #     'rest_framework.authentication.BasicAuthentication',
     # ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 4
+    'PAGE_SIZE': 150
 }
 
 # CORS_ALLOW_ALL_ORIGINS = True
