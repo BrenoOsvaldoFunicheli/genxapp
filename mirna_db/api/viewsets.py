@@ -66,7 +66,7 @@ class TGScanViewSet(viewsets.ModelViewSet):
     model=TGScan
     # queryset = TGScan.objects.all()
     serializer_class = TGScanSerializer
-    #permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         queryset = TGScan.objects.all()
