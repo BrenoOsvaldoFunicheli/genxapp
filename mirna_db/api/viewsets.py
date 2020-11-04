@@ -18,7 +18,7 @@ class TarbaseViewSet(viewsets.ModelViewSet):
     """
     model = Tarbase
     serializer_class = TarbaseSerializer
-    #permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
 
 
     def get_queryset(self):
@@ -42,7 +42,7 @@ class miRDBViewSet(viewsets.ModelViewSet):
     """
     model = miRDB
     serializer_class = miRDBSerializer
-    #permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         queryset = miRDB.objects.all()
